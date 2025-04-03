@@ -37,6 +37,36 @@ android {
             signingConfig = signingConfigs.getByName("debug")
         }
     }
+
+    flavorDimensions.add("environment")
+
+    productFlavors {
+        create("development") {
+            dimension = "environment"
+            resValue(
+                type = "string",
+                name = "app_name",
+                value = "[DEV] Catpedia")
+            applicationIdSuffix = ".dev"
+            versionNameSuffix = "-dev"
+        }
+        create("staging") {
+            dimension = "environment"
+            resValue(
+                type = "string",
+                name = "app_name",
+                value = "[STG] Catpedia")
+            applicationIdSuffix = ".staging"
+            versionNameSuffix = "-staging"
+        }
+        create("production") {
+            resValue(
+                type = "string",
+                name = "app_name",
+                value = "Catpedia")
+            dimension = "environment"
+        }
+    }
 }
 
 flutter {
