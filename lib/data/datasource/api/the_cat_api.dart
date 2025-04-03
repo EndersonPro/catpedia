@@ -20,9 +20,8 @@ class TheCatApiImpl implements TheCatApiInterface {
       '/breeds',
       queryParameters: {'limit': limit, 'page': page},
     );
-    final body = result.body;
     final response =
-        body?.map((rawBreed) => BreedModel.fromJson(rawBreed)).toList();
+        result.body?.map((rawBreed) => BreedModel.fromJson(rawBreed)).toList();
     return response ?? [];
   }
 
