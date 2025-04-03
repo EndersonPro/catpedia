@@ -1,6 +1,6 @@
 name: catpedia
-description: "A new Flutter project."
-publish_to: 'none'
+description: "CatPedia is an application that provides information about different cat breeds."
+publish_to: "none"
 version: 0.1.0
 
 environment:

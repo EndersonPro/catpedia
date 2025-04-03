@@ -1,4 +1,4 @@
-package com.example.catpedia
+package dev.endersonvizc.catpedia
 
 import io.flutter.embedding.android.FlutterActivity
 
