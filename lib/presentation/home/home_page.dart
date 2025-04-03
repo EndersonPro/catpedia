@@ -34,9 +34,7 @@ class HomePage extends StatelessWidget {
                       ),
                     ],
                   ),
-
                   const SizedBox(height: 5),
-
                   TextField(
                     decoration: InputDecoration(
                       filled: true,
@@ -62,6 +60,7 @@ class HomePage extends StatelessWidget {
           SliverToBoxAdapter(
             child: Container(
               height: height * .8,
+              padding: const EdgeInsets.symmetric(horizontal: 10),
               color: Theme.of(context).colorScheme.onPrimary,
               child: ListView.builder(
                 itemCount: 20,
@@ -71,7 +70,7 @@ class HomePage extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(6),
                       side: BorderSide(
-                        color: Theme.of(context).colorScheme.primary,
+                        color: CatPediaColors.lightGrey,
                         width: 1.2,
                       ),
                     ),
