@@ -1,9 +1,13 @@
-class EnvironmentAppConfig {
+abstract class EnvironmentConfigInterface {
+  String get baseUrl;
+  String get apiKey;
+}
+
+class EnvironmentAppConfig implements EnvironmentConfigInterface {
   late final String _baseUrl;
   late final String _apiKey;
 
-  static EnvironmentAppConfig instance = EnvironmentAppConfig._();
-  EnvironmentAppConfig._() {
+  EnvironmentAppConfig() {
     _initEnvironmentVariables();
     _validateEnvironmentVariables();
   }
@@ -22,6 +26,8 @@ class EnvironmentAppConfig {
     }
   }
 
+  @override
   String get baseUrl => _baseUrl;
+  @override
   String get apiKey => _apiKey;
 }

@@ -46,7 +46,8 @@ class BreedModel extends Breed {
 
   factory BreedModel.fromJson(Map<String, dynamic> json) {
     return BreedModel(
-      weight: WeightModel.fromJson(json['weight']),
+      weight:
+          json['weight'] != null ? WeightModel.fromJson(json['weight']) : null,
       id: json['id'],
       name: json['name'],
       cfaUrl: json['cfa_url'],
@@ -83,7 +84,10 @@ class BreedModel extends Breed {
       wikipediaUrl: json['wikipedia_url'],
       hypoallergenic: json['hypoallergenic'] ?? 0,
       referenceImageId: (json["reference_image_id"] ?? "") as String,
-      image: ImageModel.fromJson(json["image"] as Map<String, dynamic>),
+      image:
+          json["image"] != null
+              ? ImageModel.fromJson(json["image"] as Map<String, dynamic>)
+              : null,
     );
   }
 }

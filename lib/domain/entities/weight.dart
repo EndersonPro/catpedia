@@ -1,6 +1,6 @@
 class Weight {
-  String imperial;
-  String metric;
+  String? imperial;
+  String? metric;
 
-  Weight({required this.imperial, required this.metric});
+  Weight({this.imperial, this.metric});
 }
