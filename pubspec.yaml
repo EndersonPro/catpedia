@@ -1,7 +1,7 @@
 name: catpedia
 description: "CatPedia is an application that provides information about different cat breeds."
 publish_to: "none"
-version: 0.1.0
+version: 0.1.0+1
 
 environment:
   sdk: ^3.7.2
@@ -20,6 +20,8 @@ dev_dependencies:
   flutter_lints: ^5.0.0
 
 flutter:
+  assets:
+    - assets/images/icons/
   fonts:
     - family: Montserrat
       fonts:
