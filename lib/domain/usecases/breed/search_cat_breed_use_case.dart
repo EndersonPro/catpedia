@@ -1,9 +1,9 @@
 import 'package:catpedia/domain/domain.dart';
 
 class SearchCatBreedUseCase {
-  final BreedPerform _breedPerform;
+  final CatBreedPerform _breedPerform;
 
-  SearchCatBreedUseCase({required BreedPerform breedPerform})
+  SearchCatBreedUseCase({required CatBreedPerform breedPerform})
     : _breedPerform = breedPerform;
 
   Future<List<Breed>> call(String query) {

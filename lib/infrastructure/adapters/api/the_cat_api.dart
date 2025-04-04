@@ -3,7 +3,7 @@ import 'package:catpedia/infrastructure/adapters/mappers/cat_beerds/breed_dto.da
 import 'package:catpedia/infrastructure/adapters/mappers/dto_to_entity.dart';
 import 'package:catpedia/infrastructure/interfaces/http_client/http_client.dart';
 
-class TheCatApi extends BreedPerform {
+class TheCatApi extends CatBreedPerform {
   final HttpClientInterface _httpClient;
 
   TheCatApi({required HttpClientInterface httpClient})
