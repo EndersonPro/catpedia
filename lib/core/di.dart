@@ -1,12 +1,8 @@
 import 'package:catpedia/core/config/environment.dart';
-import 'package:catpedia/data/adapters/logger.dart';
-import 'package:catpedia/data/datasource/api/the_cat_api.dart';
-import 'package:catpedia/data/repositories/the_cat_repository.dart';
 import 'package:catpedia/domain/domain.dart';
+import 'package:catpedia/infrastructure/infrastructure.dart';
 import 'package:catpedia/presentation/home/bloc/home_bloc.dart';
 import 'package:get_it/get_it.dart';
-
-import 'data.dart';
 
 final getIt = GetIt.instance;
 
@@ -19,18 +15,21 @@ void initializeDependencies() {
         HttpClientImpl(environmentConfig: getIt<EnvironmentConfigInterface>()),
   );
 
-  getIt.registerLazySingleton<TheCatApiInterface>(
-    () => TheCatApiImpl(httpClient: getIt<HttpClientInterface>()),
+  getIt.registerLazySingleton<TheCatApi>(
+    () => TheCatApi(httpClient: getIt<HttpClientInterface>()),
   );
 
-  getIt.registerLazySingleton<TheCatRepositoryInterface>(
-    () => TheCatRepositoryImpl(
-      api: getIt<TheCatApiInterface>(),
-      logger: getIt<LoggerInterface>(),
-    ),
+  getIt.registerLazySingleton<GetCatBreedsUseCase>(
+    () => GetCatBreedsUseCase(breedPerform: getIt<TheCatApi>()),
   );
+  getIt.registerLazySingleton<SearchCatBreedUseCase>(
+    () => SearchCatBreedUseCase(breedPerform: getIt<TheCatApi>()),
+  );
+
   getIt.registerSingleton<HomeBloc>(
-    HomeBloc(theCatRepository: getIt<TheCatRepositoryInterface>())
-      ..fetchBreeds(),
+    HomeBloc(
+      getCatBreedsUseCase: getIt<GetCatBreedsUseCase>(),
+      searchCatBreedUseCase: getIt<SearchCatBreedUseCase>(),
+    )..fetchBreeds(),
   );
 }

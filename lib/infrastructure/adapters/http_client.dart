@@ -1,4 +1,4 @@
-import 'package:catpedia/domain/adapters/api.dart';
+import 'package:catpedia/infrastructure/interfaces/http_client/http_client.dart';
 import 'package:dio/dio.dart';
 
 import '../../core/core.dart';

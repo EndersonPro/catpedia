@@ -1,6 +1,6 @@
 import 'dart:developer' as developer;
 
-import 'package:catpedia/domain/adapters/logger.dart';
+import 'package:catpedia/infrastructure/interfaces/logger/logger.dart';
 
 class LoggerImpl implements LoggerInterface {
   @override

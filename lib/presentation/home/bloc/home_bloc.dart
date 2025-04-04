@@ -1,26 +1,27 @@
-import 'package:bloc/bloc.dart';
-import 'package:catpedia/domain/entities/breed.dart';
-import 'package:catpedia/domain/repositories/the_cat_repository.dart';
+import 'package:catpedia/domain/domain.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'home_event.dart';
 part 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
-  final TheCatRepositoryInterface _theCatRepository;
+  final GetCatBreedsUseCase getCatBreedsUseCase;
+  final SearchCatBreedUseCase searchCatBreedUseCase;
 
-  HomeBloc({required TheCatRepositoryInterface theCatRepository})
-    : _theCatRepository = theCatRepository,
-      super(
-        HomeState(
-          breeds: const [],
-          hasError: false,
-          isLoading: false,
-          hasMorePage: true,
-          page: 0,
-          limit: 10,
-        ),
-      ) {
+  HomeBloc({
+    required this.getCatBreedsUseCase,
+    required this.searchCatBreedUseCase,
+  }) : super(
+         HomeState(
+           breeds: const [],
+           hasError: false,
+           isLoading: false,
+           hasMorePage: true,
+           page: 0,
+           limit: 10,
+         ),
+       ) {
     on<HomeEvent>((event, emit) {
       debugPrint("Called");
     });
@@ -38,10 +39,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         final limit = state.limit;
         final page = state.page + 1;
         // emit(state.copyWith(isLoading: true, hasError: false));
-        final breeds = await _theCatRepository.getBreeds(
-          limit: limit,
-          page: page,
-        );
+        final breeds = await getCatBreedsUseCase(limit: limit, page: page);
 
         final hasMorePage = breeds.length == limit;
 
@@ -63,7 +61,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     try {
       debugPrint("FetchBreedsEvent Called");
       emit(state.copyWith(isLoading: true, hasError: false));
-      final breeds = await _theCatRepository.getBreeds();
+      final breeds = await getCatBreedsUseCase();
       emit(
         state.copyWith(
           isLoading: false,
