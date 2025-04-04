@@ -3,6 +3,7 @@ import 'package:catpedia/presentation/home/widgets/breeds_list.dart';
 import 'package:catpedia/presentation/shared/shared.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CatBreedsListView extends StatelessWidget {
   const CatBreedsListView({super.key});
@@ -11,11 +12,12 @@ class CatBreedsListView extends StatelessWidget {
   Widget build(BuildContext context) {
     final cardHeight = 210.0;
     final homeState = context.watch<HomeBloc>().state;
+    final l10n = AppLocalizations.of(context)!;
 
     if (homeState.hasError) {
       return Center(
         child: Text(
-          'Error loading breeds',
+          l10n.errorGetBreeds,
           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
             fontWeight: FontWeight.w700,
             color: Theme.of(context).colorScheme.error,

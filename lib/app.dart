@@ -1,5 +1,7 @@
 import 'package:catpedia/presentation/shared/theme/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'core/core.dart';
 import 'domain/domain.dart';
@@ -12,6 +14,13 @@ class CatPediaApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: CatPediaThemes.lightTheme(),
+      localizationsDelegates: [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: [Locale('en')],
       onGenerateRoute: (settings) {
         switch (settings.name) {
           case CatPediaRoutes.home:

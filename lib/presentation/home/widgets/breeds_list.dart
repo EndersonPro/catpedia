@@ -1,9 +1,11 @@
 import 'package:catpedia/core/router.dart';
 import 'package:catpedia/domain/entities/breed.dart';
 import 'package:catpedia/presentation/home/bloc/home_bloc.dart';
+import 'package:catpedia/presentation/home/widget_keys/home_keys.dart';
 import 'package:catpedia/presentation/shared/shared.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CatBreedsList extends StatefulWidget {
   const CatBreedsList({
@@ -35,7 +37,9 @@ class _CatBreedsListState extends State<CatBreedsList> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return ListView.builder(
+      key: HomePageKeys.resultListView,
       controller: _scrollController,
       itemCount: widget.breeds.length,
       itemBuilder: (context, index) {
@@ -49,6 +53,7 @@ class _CatBreedsListState extends State<CatBreedsList> {
             );
           },
           child: Card(
+            key: Key(breed.id.toString()),
             elevation: 0,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(6),
@@ -125,29 +130,26 @@ class _CatBreedsListState extends State<CatBreedsList> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        ChipText(text: breed.name ?? '', title: "Raza"),
+                        ChipText(text: breed.name ?? '', title: l10n.breed),
                         const SizedBox(height: 5),
-                        ChipText(
-                          text: breed.origin ?? '',
-                          title: "Pais de origen",
-                        ),
+                        ChipText(text: breed.origin ?? '', title: l10n.country),
                         const SizedBox(height: 5),
                         ChipText(
                           text: breed.intelligence?.toString() ?? '',
-                          title: "Inteligencia",
+                          title: l10n.intelligence,
                         ),
                         const SizedBox(height: 5),
 
                         ChipText(
                           text: breed.temperament ?? '',
-                          title: "Temperamento",
+                          title: l10n.temperament,
                         ),
                         const SizedBox(height: 5),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Text(
-                              "Saber más",
+                              l10n.moreInformation,
                               style: Theme.of(
                                 context,
                               ).textTheme.bodyLarge?.copyWith(

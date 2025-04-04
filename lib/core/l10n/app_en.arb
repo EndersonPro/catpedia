@@ -1,0 +1,14 @@
+{
+  "searchPlaceholder": "Search for a cat breed",
+  "errorGetBreeds": "An error occurred",
+  "country": "Country origin",
+  "breed": "Breed",
+  "intelligence": "Intelligence",
+  "temperament": "Temperament",
+  "moreInformation": "More information",
+  "lifeSpan": "Life Span",
+  "weight": "Weight",
+  "affectionLevel": "Affection Level",
+  "grooming": "Grooming",
+  "noDescriptionAvailable": "No description available"
+}
