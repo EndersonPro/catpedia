@@ -22,11 +22,36 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
            limit: 10,
          ),
        ) {
-    on<HomeEvent>((event, emit) {
-      debugPrint("Called");
-    });
     on<FetchBreedsEvent>(_initialBreeds);
     on<LoadMoreEvent>(_loadMoreBreeds);
+    on<SearchingEvent>(_searchBreeds);
+  }
+
+  Future<void> _searchBreeds(
+    SearchingEvent event,
+    Emitter<HomeState> emit,
+  ) async {
+    try {
+      debugPrint("SearchingEvent Called");
+      final searchText = event.searchText;
+      if (searchText.isEmpty) {
+        return;
+      }
+      emit(state.copyWith(isLoading: true, hasError: false));
+      final breeds = await searchCatBreedUseCase(searchText);
+      emit(
+        state.copyWith(
+          isLoading: false,
+          hasError: false,
+          hasMorePage: true,
+          breeds: breeds,
+        ),
+      );
+    } catch (e) {
+      emit(
+        state.copyWith(isLoading: false, hasError: true, hasMorePage: false),
+      );
+    }
   }
 
   Future<void> _loadMoreBreeds(

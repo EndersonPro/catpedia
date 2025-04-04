@@ -1,4 +1,5 @@
 import 'package:catpedia/presentation/home/widgets/cat_breeds_listview.dart';
+import 'package:catpedia/presentation/home/widgets/search_input.dart';
 import 'package:catpedia/presentation/shared/shared.dart';
 import 'package:flutter/material.dart';
 
@@ -37,21 +38,7 @@ class HomePage extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 5),
-                  TextField(
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Theme.of(context).colorScheme.onPrimary,
-                      hintText: 'Search for a cat breed',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(6),
-                        borderSide: BorderSide.none,
-                      ),
-                      prefixIcon: Icon(
-                        Icons.search,
-                        color: Theme.of(context).colorScheme.primary,
-                      ),
-                    ),
-                  ),
+                  SearchInput(),
                 ],
               ),
             ),
