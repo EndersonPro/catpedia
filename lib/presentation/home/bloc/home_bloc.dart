@@ -25,6 +25,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<FetchBreedsEvent>(_initialBreeds);
     on<LoadMoreEvent>(_loadMoreBreeds);
     on<SearchingEvent>(_searchBreeds);
+    on<ClearSearchEvent>(_clearSearch);
   }
 
   Future<void> _searchBreeds(
@@ -85,6 +86,29 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   Future<void> _initialBreeds(HomeEvent event, Emitter<HomeState> emit) async {
     try {
       debugPrint("FetchBreedsEvent Called");
+      emit(state.copyWith(isLoading: true, hasError: false));
+      final breeds = await getCatBreedsUseCase();
+      emit(
+        state.copyWith(
+          isLoading: false,
+          hasError: false,
+          hasMorePage: true,
+          breeds: breeds,
+        ),
+      );
+    } catch (e) {
+      emit(
+        state.copyWith(isLoading: false, hasError: true, hasMorePage: false),
+      );
+    }
+  }
+
+  Future<void> _clearSearch(
+    ClearSearchEvent event,
+    Emitter<HomeState> emit,
+  ) async {
+    try {
+      debugPrint("ClearSearchEvent Called");
       emit(state.copyWith(isLoading: true, hasError: false));
       final breeds = await getCatBreedsUseCase();
       emit(

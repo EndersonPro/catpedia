@@ -1,9 +1,9 @@
 import 'package:catpedia/domain/entities/breed.dart';
 import 'package:catpedia/domain/entities/image.dart';
 import 'package:catpedia/domain/entities/weight.dart';
-import 'package:catpedia/infrastructure/adapters/mappers/cat_beerds/breed_dto.dart';
-import 'package:catpedia/infrastructure/adapters/mappers/cat_beerds/image_dto.dart';
-import 'package:catpedia/infrastructure/adapters/mappers/cat_beerds/weight_dto.dart';
+import 'package:catpedia/infrastructure/adapters/mappers/cat_breeds/breed_dto.dart';
+import 'package:catpedia/infrastructure/adapters/mappers/cat_breeds/image_dto.dart';
+import 'package:catpedia/infrastructure/adapters/mappers/cat_breeds/weight_dto.dart';
 
 Weight dtoToEntityWeight(WeightDto dto) {
   return Weight(imperial: dto.imperial, metric: dto.metric);

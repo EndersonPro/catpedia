@@ -1,5 +1,5 @@
 import 'package:catpedia/domain/domain.dart';
-import 'package:catpedia/infrastructure/adapters/mappers/cat_beerds/breed_dto.dart';
+import 'package:catpedia/infrastructure/adapters/mappers/cat_breeds/breed_dto.dart';
 import 'package:catpedia/infrastructure/adapters/mappers/dto_to_entity.dart';
 import 'package:catpedia/infrastructure/interfaces/http_client/http_client.dart';
 

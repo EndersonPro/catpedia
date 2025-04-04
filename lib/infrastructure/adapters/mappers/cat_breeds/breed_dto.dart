@@ -1,5 +1,5 @@
-import 'package:catpedia/infrastructure/adapters/mappers/cat_beerds/image_dto.dart';
-import 'package:catpedia/infrastructure/adapters/mappers/cat_beerds/weight_dto.dart';
+import 'package:catpedia/infrastructure/adapters/mappers/cat_breeds/image_dto.dart';
+import 'package:catpedia/infrastructure/adapters/mappers/cat_breeds/weight_dto.dart';
 
 class BreedDto {
   WeightDto? weight;

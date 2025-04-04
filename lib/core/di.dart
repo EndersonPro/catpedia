@@ -9,16 +9,13 @@ final getIt = GetIt.instance;
 void initializeDependencies() {
   getIt.registerSingleton<EnvironmentConfigInterface>(EnvironmentAppConfig());
   getIt.registerLazySingleton<LoggerInterface>(() => LoggerImpl());
-
   getIt.registerLazySingleton<HttpClientInterface>(
     () =>
         HttpClientImpl(environmentConfig: getIt<EnvironmentConfigInterface>()),
   );
-
   getIt.registerLazySingleton<TheCatApi>(
     () => TheCatApi(httpClient: getIt<HttpClientInterface>()),
   );
-
   getIt.registerLazySingleton<GetCatBreedsUseCase>(
     () => GetCatBreedsUseCase(breedPerform: getIt<TheCatApi>()),
   );

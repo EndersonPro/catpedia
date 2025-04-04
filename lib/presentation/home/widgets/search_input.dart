@@ -19,6 +19,19 @@ class SearchInput extends StatelessWidget {
           borderRadius: BorderRadius.circular(6),
           borderSide: BorderSide.none,
         ),
+        prefixIcon: IconButton(
+          icon: Icon(Icons.clear),
+          onPressed: () {
+            final searchText = _textEditingController.text;
+            if (searchText.isEmpty) {
+              return;
+            }
+            _textEditingController.clear();
+            FocusScope.of(context).unfocus();
+            context.read<HomeBloc>().add(ClearSearchEvent());
+          },
+          color: Theme.of(context).colorScheme.primary,
+        ),
         suffixIcon: IconButton(
           icon: Icon(Icons.search),
           onPressed: () {
