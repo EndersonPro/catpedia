@@ -5,12 +5,17 @@ import 'package:catpedia/infrastructure/adapters/mappers/cat_breeds/breed_dto.da
 import 'package:catpedia/infrastructure/adapters/mappers/cat_breeds/image_dto.dart';
 import 'package:catpedia/infrastructure/adapters/mappers/cat_breeds/weight_dto.dart';
 
-Weight dtoToEntityWeight(WeightDto dto) {
-  return Weight(imperial: dto.imperial, metric: dto.metric);
+WeightBreed dtoToEntityWeight(WeightDto dto) {
+  return WeightBreed(imperial: dto.imperial, metric: dto.metric);
 }
 
-Image dtoToEntityImage(ImageDto dto) {
-  return Image(id: dto.id, width: dto.width, height: dto.height, url: dto.url);
+ImageBreed dtoToEntityImage(ImageDto dto) {
+  return ImageBreed(
+    id: dto.id,
+    width: dto.width,
+    height: dto.height,
+    url: dto.url,
+  );
 }
 
 Breed dtoToEntityBreed(BreedDto dto) {

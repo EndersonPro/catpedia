@@ -2,7 +2,7 @@ import 'package:catpedia/domain/entities/image.dart';
 import 'package:catpedia/domain/entities/weight.dart';
 
 class Breed {
-  Weight? weight;
+  WeightBreed? weight;
   String? id;
   String? name;
   String? cfaUrl;
@@ -39,7 +39,7 @@ class Breed {
   String? wikipediaUrl;
   int? hypoallergenic;
   String? referenceImageId;
-  Image? image;
+  ImageBreed? image;
 
   Breed({
     this.weight,

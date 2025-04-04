@@ -1,6 +1,6 @@
-class Weight {
+class WeightBreed {
   String? imperial;
   String? metric;
 
-  Weight({this.imperial, this.metric});
+  WeightBreed({this.imperial, this.metric});
 }

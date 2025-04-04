@@ -1,7 +1,7 @@
 import 'package:catpedia/domain/domain.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../../../mock.dart';
+import '../../../../mock.dart';
 
 void main() {
   group('SearchCatBreedUseCase Test', () {

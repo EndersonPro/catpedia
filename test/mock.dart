@@ -21,8 +21,8 @@ class TheCatApiMock extends CatBreedPerform {
         strangerFriendly: 3,
         grooming: 2,
         energyLevel: 5,
-        weight: Weight(imperial: '8 - 10', metric: '4 - 5'),
-        image: Image(
+        weight: WeightBreed(imperial: '8 - 10', metric: '4 - 5'),
+        image: ImageBreed(
           height: 200,
           id: '1',
           width: 200,
@@ -52,8 +52,8 @@ class TheCatApiMock extends CatBreedPerform {
         strangerFriendly: 3,
         grooming: 2,
         energyLevel: 5,
-        weight: Weight(imperial: '8 - 10', metric: '4 - 5'),
-        image: Image(
+        weight: WeightBreed(imperial: '8 - 10', metric: '4 - 5'),
+        image: ImageBreed(
           height: 200,
           id: '1',
           width: 200,

@@ -1,10 +1,10 @@
-class Image {
+class ImageBreed {
   String id;
   int width;
   int height;
   String url;
 
-  Image({
+  ImageBreed({
     required this.id,
     required this.width,
     required this.height,
