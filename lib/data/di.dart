@@ -3,6 +3,7 @@ import 'package:catpedia/data/adapters/logger.dart';
 import 'package:catpedia/data/datasource/api/the_cat_api.dart';
 import 'package:catpedia/data/repositories/the_cat_repository.dart';
 import 'package:catpedia/domain/domain.dart';
+import 'package:catpedia/presentation/home/bloc/home_bloc.dart';
 import 'package:get_it/get_it.dart';
 
 import 'data.dart';
@@ -27,5 +28,9 @@ void initializeDependencies() {
       api: getIt<TheCatApiInterface>(),
       logger: getIt<LoggerInterface>(),
     ),
+  );
+  getIt.registerSingleton<HomeBloc>(
+    HomeBloc(theCatRepository: getIt<TheCatRepositoryInterface>())
+      ..fetchBreeds(),
   );
 }
