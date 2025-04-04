@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 class ShimmerEffect extends StatefulWidget {
   final Widget child;
 
-  const ShimmerEffect({Key? key, required this.child}) : super(key: key);
+  const ShimmerEffect({super.key, required this.child});
 
   @override
-  _ShimmerEffectState createState() => _ShimmerEffectState();
+  ShimmerEffectState createState() => ShimmerEffectState();
 }
 
-class _ShimmerEffectState extends State<ShimmerEffect>
+class ShimmerEffectState extends State<ShimmerEffect>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
 
@@ -47,8 +47,8 @@ class _ShimmerEffectState extends State<ShimmerEffect>
             );
             return gradient.createShader(bounds);
           },
-          child: widget.child,
           blendMode: BlendMode.srcATop,
+          child: widget.child,
         );
       },
       child: widget.child,

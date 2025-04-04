@@ -30,6 +30,7 @@ class CatPediaApp extends StatelessWidget {
               builder: (context) => CatBreedDetail(breed: breed),
             );
         }
+        return null;
       },
     );
   }
